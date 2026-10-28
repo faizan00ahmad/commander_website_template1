@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 11 17 28;
+  --fg: 244 247 250;
+  --panel: 19 28 44;
+  --line: 40 53 75;
+  --accent: 32 175 85;
+  --onaccent: 6 22 14;
+  --tint: 24 35 54;
+  --radius: 4px;
+}
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { @apply bg-bg font-body text-fg antialiased; }
+::selection { background: rgb(var(--accent)); color: rgb(var(--onaccent)); }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 md:px-8; }
+  .h-display { @apply font-display font-semibold uppercase leading-[1.05] tracking-wide; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[.24em] text-accent; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-7 py-3.5 text-sm font-bold uppercase tracking-widest transition; }
+  .btn-primary { @apply bg-accent text-onaccent hover:brightness-110; }
+  .btn-ghost { @apply border border-white/40 text-white hover:bg-white hover:text-bg; }
+  .btn-invert { @apply bg-bg text-white hover:bg-black; }
+}
