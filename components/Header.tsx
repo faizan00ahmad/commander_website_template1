@@ -17,7 +17,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50">
-      <div className="hidden border-b border-line bg-black/60 text-xs text-white/70 md:block">
+      <div className="hidden border-b border-line bg-[#05080e] text-xs text-white/70 md:block">
         <div className="container-x flex h-9 items-center justify-between">
           <span>{contact.address}</span>
           <span className="flex gap-6">
@@ -36,6 +36,7 @@ export default function Header() {
               <Link key={l.href} href={l.href} className="transition hover:text-accent">{l.label}</Link>
             ))}
           </nav>
+          <Link href="/contact" className="btn btn-primary hidden !px-5 !py-2.5 lg:inline-flex">Get in touch</Link>
           <button className="lg:hidden" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
             <span className="block h-0.5 w-7 bg-white" />
             <span className="mt-1.5 block h-0.5 w-7 bg-white" />
