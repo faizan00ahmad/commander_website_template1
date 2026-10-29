@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 :root {
+  --bg: 248 250 252;
+  --fg: 15 23 42;
+  --panel: 255 255 255;
+  --line: 221 228 238;
+  --accent: 22 148 72;
+  --onaccent: 255 255 255;
+  --tint: 232 242 236;
+  --radius: 4px;
+}
+[data-theme="dark"] {
   --bg: 11 17 28;
   --fg: 244 247 250;
   --panel: 19 28 44;
@@ -10,7 +20,6 @@
   --accent: 32 175 85;
   --onaccent: 6 22 14;
   --tint: 24 35 54;
-  --radius: 4px;
 }
 
 html { scroll-behavior: smooth; overflow-x: clip; }
@@ -23,8 +32,9 @@ body { @apply bg-bg font-body text-fg antialiased; }
   .eyebrow { @apply text-xs font-bold uppercase tracking-[.24em] text-accent; }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded-[3px] px-7 py-3.5 text-sm font-bold uppercase tracking-widest transition; }
   .btn-primary { @apply bg-accent text-onaccent hover:brightness-110; }
-  .btn-ghost { @apply border border-white/40 text-white hover:bg-white hover:text-bg; }
-  .btn-invert { @apply bg-bg text-white hover:bg-black; }
+  .btn-ghost { @apply border border-fg/30 text-fg hover:bg-fg hover:text-bg; }
+  .btn-ghost-light { @apply border border-white/50 text-white hover:bg-white hover:text-[#0b111c]; }
+  .btn-invert { @apply bg-fg text-bg hover:opacity-90; }
 }
 
 /* ---- shared polish ---- */
@@ -37,4 +47,16 @@ body { @apply bg-bg font-body text-fg antialiased; }
 section[id] { scroll-margin-top: 90px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---- mobile ---- */
+html { -webkit-text-size-adjust: 100%; color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+.btn { min-height: 48px; }
+@media (hover: none) {
+  .lift:hover { transform: none; box-shadow: none; }
+  .glow:hover { transform: none; box-shadow: none; }
+}
+@media (max-width: 767px) {
+  input, select, textarea { font-size: 16px !important; }
 }

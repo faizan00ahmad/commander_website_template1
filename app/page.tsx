@@ -9,7 +9,7 @@ import { businesses, stats, timeline, vision, mission, certifications } from "@/
 export default function Home() {
   return (
     <>
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden">
+      <section className="relative flex min-h-[88svh] items-center overflow-hidden">
         <HeroMedia />
         <div className="container-x relative py-28">
           <p className="eyebrow animate-rise flex items-center gap-3">
@@ -24,7 +24,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4 animate-rise [animation-delay:.4s]">
             <Link href="/contact" className="btn btn-primary">Become a distributor</Link>
-            <Link href="#businesses" className="btn btn-ghost">Explore our businesses</Link>
+            <Link href="#businesses" className="btn btn-ghost-light">Explore our businesses</Link>
           </div>
         </div>
         <a href="#trust" aria-label="Scroll down" className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] font-bold uppercase tracking-[.3em] text-white/60 md:flex">
@@ -34,9 +34,9 @@ export default function Home() {
       </section>
 
       <section id="trust" className="border-y border-line bg-panel">
-        <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-5 text-xs font-bold uppercase tracking-[.18em] text-white/70">
+        <div className="container-x flex flex-wrap items-center justify-center gap-x-10 gap-y-3 py-5 text-xs font-bold uppercase tracking-[.18em] text-fg/70">
           {certifications.map((c) => (
-            <span key={c.code} className="flex items-center gap-2"><span className="text-accent">✓</span>{c.code} <span className="font-medium normal-case tracking-normal text-white/45">{c.label}</span></span>
+            <span key={c.code} className="flex items-center gap-2"><span className="text-accent">✓</span>{c.code} <span className="font-medium normal-case tracking-normal text-fg/60">{c.label}</span></span>
           ))}
         </div>
       </section>
@@ -46,7 +46,7 @@ export default function Home() {
           {stats.map((s) => (
             <div key={s.label} className="md:border-l md:border-line md:pl-8 md:first:border-0 md:first:pl-0">
               <CountUp value={s.value} className="h-display block text-4xl text-accent md:text-6xl" />
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[.18em] text-white/55">{s.label}</p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[.18em] text-fg/55">{s.label}</p>
             </div>
           ))}
         </div>
@@ -58,10 +58,10 @@ export default function Home() {
           {timeline.map((t, i) => (
             <li key={t.year}>
               <Reveal delay={i * 140} className="lift relative h-full overflow-hidden border border-line bg-panel p-8">
-                <span aria-hidden className="h-display pointer-events-none absolute -right-2 -top-4 select-none text-8xl text-white/[0.04]">{t.year}</span>
+                <span aria-hidden className="h-display pointer-events-none absolute -right-2 -top-4 select-none text-8xl text-fg/[0.04]">{t.year}</span>
                 <span className="relative inline-flex h-10 items-center rounded-[3px] bg-accent px-4 font-display text-lg font-semibold text-onaccent">{t.year}</span>
                 <h3 className="h-display relative mt-6 text-xl">{t.title}</h3>
-                <p className="relative mt-3 leading-relaxed text-white/65">{t.body}</p>
+                <p className="relative mt-3 leading-relaxed text-fg/65">{t.body}</p>
               </Reveal>
             </li>
           ))}
@@ -71,10 +71,10 @@ export default function Home() {
       <section className="container-x grid items-center gap-14 pt-28 md:grid-cols-2">
         <Reveal>
           <SectionHead eyebrow="Vision & mission" title="Our direction" className="mb-6" />
-          <p className="text-lg leading-relaxed text-white/75">{vision}</p>
+          <p className="text-lg leading-relaxed text-fg/75">{vision}</p>
           <ul className="mt-6 space-y-3">
             {mission.map((m) => (
-              <li key={m} className="flex gap-3 text-white/75"><span className="mt-2 h-2 w-2 shrink-0 bg-accent" />{m}</li>
+              <li key={m} className="flex gap-3 text-fg/75"><span className="mt-2 h-2 w-2 shrink-0 bg-accent" />{m}</li>
             ))}
           </ul>
           <Link href="/about" className="btn btn-primary mt-8">About the group</Link>
@@ -83,7 +83,7 @@ export default function Home() {
           <Img name="about-1-1.png" alt="Commander Group head office" className="w-full rounded-[4px] shadow-2xl shadow-black/50" />
           <div className="absolute -bottom-5 -left-5 hidden border-l-4 border-accent bg-panel p-5 shadow-xl md:block">
             <p className="h-display text-3xl text-accent">25+</p>
-            <p className="text-xs uppercase tracking-widest text-white/60">Years of excellence</p>
+            <p className="text-xs uppercase tracking-widest text-fg/60">Years of excellence</p>
           </div>
         </Reveal>
       </section>
@@ -98,7 +98,7 @@ export default function Home() {
               <blockquote className="h-display text-balance mt-4 text-2xl normal-case leading-snug md:text-4xl">
                 “We embrace a strong foundation of commitment, integrity and excellence and are moving forward into an era of growth and opportunity.”
               </blockquote>
-              <p className="mt-5 text-white/60">Mr. Rafique, Chairman, Commander Group</p>
+              <p className="mt-5 text-fg/60">Mr. Rafique, Chairman, Commander Group</p>
               <Link href="/leadership" className="mt-4 inline-block text-sm font-bold uppercase tracking-widest text-accent">Read the full message →</Link>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
             <Reveal key={c.code} delay={i * 120}>
               <div className="lift h-full border-t-4 border-accent bg-panel p-8">
                 <p className="h-display text-3xl">{c.code}</p>
-                <p className="mt-2 text-white/60">{c.label}</p>
+                <p className="mt-2 text-fg/60">{c.label}</p>
               </div>
             </Reveal>
           ))}

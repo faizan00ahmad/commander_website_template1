@@ -6,7 +6,7 @@ export default function PageHero({ eyebrow, title, children }: { eyebrow: string
         <p className="eyebrow animate-rise">{eyebrow}</p>
         <h1 className="h-display mt-4 max-w-4xl animate-rise text-4xl md:text-7xl">{title}</h1>
         <div className="mt-3 h-1 w-24 bg-accent" />
-        {children && <p className="mt-6 max-w-2xl animate-rise text-lg text-white/70">{children}</p>}
+        {children && <p className="mt-6 max-w-2xl animate-rise text-lg text-fg/70">{children}</p>}
       </div>
     </section>
   );

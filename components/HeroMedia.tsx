@@ -27,7 +27,6 @@ export default function HeroMedia() {
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0b111c] via-[#0b111c]/70 to-[#0b111c]/10" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#0b111c]/50 via-transparent to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0b111c] to-transparent" />
     </div>
   );
 }

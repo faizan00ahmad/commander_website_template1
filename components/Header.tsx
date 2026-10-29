@@ -1,7 +1,7 @@
-"use client";
 import Link from "next/link";
-import { useState } from "react";
 import Img from "./Img";
+import ThemeToggle from "./ThemeToggle";
+import MobileNav from "./MobileNav";
 import { contact } from "@/lib/data";
 
 const links = [
@@ -14,10 +14,9 @@ const links = [
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50">
-      <div className="hidden border-b border-line bg-[#05080e] text-xs text-white/70 md:block">
+      <div className="hidden border-b border-line bg-[#05080e] text-xs text-white/70 lg:block">
         <div className="container-x flex h-9 items-center justify-between">
           <span>{contact.address}</span>
           <span className="flex gap-6">
@@ -27,29 +26,22 @@ export default function Header() {
         </div>
       </div>
       <div className="border-b border-line bg-bg/90 backdrop-blur">
-        <div className="container-x flex h-[72px] items-center justify-between">
-          <Link href="/" onClick={() => setOpen(false)} aria-label="Commander Group home">
-            <Img name="logo-1-white.png" alt="Commander Group" className="h-10 w-auto" />
+        <div className="container-x flex h-[68px] items-center justify-between gap-3">
+          <Link href="/" aria-label="Commander Group home" className="shrink-0">
+            <Img name="logo1-1.png" alt="Commander Group" className="h-9 w-auto dark:hidden" />
+            <Img name="logo-1-white.png" alt="Commander Group" className="hidden h-9 w-auto dark:block" />
           </Link>
-          <nav className="hidden items-center gap-7 text-[13px] font-semibold uppercase tracking-[.14em] text-white/80 lg:flex">
+          <nav className="hidden items-center gap-7 text-[13px] font-semibold uppercase tracking-[.14em] text-fg/80 lg:flex">
             {links.map((l) => (
               <Link key={l.href} href={l.href} className="transition hover:text-accent">{l.label}</Link>
             ))}
           </nav>
-          <Link href="/contact" className="btn btn-primary hidden !px-5 !py-2.5 lg:inline-flex">Get in touch</Link>
-          <button className="lg:hidden" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-            <span className="block h-0.5 w-7 bg-white" />
-            <span className="mt-1.5 block h-0.5 w-7 bg-white" />
-            <span className="mt-1.5 block h-0.5 w-7 bg-white" />
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Link href="/contact" className="btn btn-primary hidden !px-5 !py-2.5 lg:inline-flex">Get in touch</Link>
+            <MobileNav links={links} top={68} className="lg:hidden" />
+          </div>
         </div>
-        {open && (
-          <nav className="container-x flex flex-col gap-4 border-t border-line py-5 text-sm font-semibold uppercase tracking-widest lg:hidden">
-            {links.map((l) => (
-              <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</Link>
-            ))}
-          </nav>
-        )}
       </div>
     </header>
   );
